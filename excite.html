@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excite</title>
+    <style>
+        body {
+            background-image: url('bg2.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin: 20px 0;
+            color: #ff69b4;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .video-container {
+            max-width: 90%; /* Responsive width */
+            width: 400px; /* Max width for larger screens */
+        }
+
+        video {
+            width: 100%; /* Make video responsive */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 15px; /* Optional: rounded corners for video */
+        }
+
+        .range-container {
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%; /* Full width for range slider */
+            max-width: 300px; /* Limit max width */
+            height: 8px;
+            border-radius: 5px;
+            background: linear-gradient(90deg, #ff69b4 0%, #ff1493 50%, #ff69b4 100%);
+            outline: none;
+            margin: 10px 0;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #fff;
+            cursor: pointer;
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff69b4;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+            width: 100%; /* Full width button */
+            max-width: 300px; /* Limit button size */
+        }
+
+        button:hover {
+            background-color: #ff1493;
+        }
+
+        /* Media Queries for further responsiveness */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 28px; /* Smaller font size for mobile */
+            }
+
+            input[type="range"] {
+                max-width: 80%; /* Wider range slider on mobile */
+            }
+
+            button {
+                max-width: 80%; /* Wider button on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <video id="exciteVideo" class="video-player" autoplay loop muted>
+            <source src="IMG_8091.MP4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <h1>Rate how excited are you</h1>
+        <div class="range-container">
+            <input type="range" id="excitementLevel" min="1" max="10" value="5">
+        </div>
+        <button onclick="continueToNextPage()">Continue</button>
+    </div>
+
+    <script>
+        const video = document.getElementById('exciteVideo');
+
+        video.addEventListener('ended', function() {
+            this.currentTime = 0; // Reset video to the beginning
+            this.play(); // Play the video again
+        });
+
+        function continueToNextPage() {
+            const excitementLevel = document.getElementById('excitementLevel').value;
+            alert(`You rated your excitement level as: ${excitementLevel}`); // Example alert
+            window.location.href = "final.html"; // Navigate to final.html
+        }
+
+        window.addEventListener('load', function() {
+            video.play();
+        });
+    </script>
+</body>
+</html>

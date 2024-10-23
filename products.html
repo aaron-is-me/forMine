@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eat with Me</title>
+    <style>
+        body {
+            background-image: url('bg2.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            flex-direction: column;
+            animation: fadeIn 1s ease; /* Keyframe animation for fade in */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .text-prompt {
+            font-size: 30px;
+            margin-bottom: 20px;
+            color: #510d2f;
+            animation: slideIn 1s ease; /* Keyframe animation for sliding in */
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .pics {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .image-container {
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s; /* Smooth transform effect */
+        }
+
+        .image {
+            width: 250px;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+
+        .image:hover {
+            transform: scale(1.05);
+        }
+
+        .caption {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .selected {
+            border-bottom: 4px solid #ff69b4;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff69b4;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #ff1493;
+        }
+    </style>
+</head>
+<body>
+    <div class="text-prompt">
+        What would you like to eat when you meet me?
+    </div>
+    <div class="pics">
+        <div class="image-container" onclick="selectImage(this)">
+            <img src="photo_2_2024-10-06_03-14-08.jpg" class="image" alt="Ice Cream">
+            <div class="caption">Ice Cream</div>
+        </div>
+        <div class="image-container" onclick="selectImage(this)">
+            <img src="photo_3_2024-10-06_03-14-08.jpg" class="image" alt="Hot Pot">
+            <div class="caption">Hot Pot</div>
+        </div>
+        <div class="image-container" onclick="selectImage(this)">
+            <img src="photo_4_2024-10-06_03-14-08.jpg" class="image" alt="Street Food">
+            <div class="caption">Street Food</div>
+        </div>
+        <div class="image-container" onclick="selectImage(this)">
+            <img src="photo_5_2024-10-06_03-14-08.jpg" class="image" alt="Burger">
+            <div class="caption">Burger</div>
+        </div>
+        <div class="image-container" onclick="selectImage(this)">
+            <img src="photo_1_2024-10-06_03-14-08.jpg" class="image" alt="Me">
+            <div class="caption">Me</div>
+        </div>
+    </div>
+    <button onclick="submitSelection()">Submit</button>
+
+    <script>
+        let selectedImage = null;
+
+        function selectImage(element) {
+            if (selectedImage) {
+                selectedImage.classList.remove('selected');
+            }
+            selectedImage = element;
+            selectedImage.classList.add('selected');
+        }
+
+        function submitSelection() {
+            if (selectedImage) {
+                window.location.href = 'excite.html';
+            } else {
+                alert('Please select one food item before submitting.');
+            }
+        }
+    </script>
+</body>
+</html>

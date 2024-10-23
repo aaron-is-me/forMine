@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOR MINE</title>
+    <style>
+        body {
+            background-image: url('bg2.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0; /* Added to remove default body margin */
+        }
+
+        .text {
+            width: 50%;
+            height: 150px;
+            background-color: rgba(113, 114, 114, 0.289);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            color: white;
+            margin: 15% auto; /* Center the box vertically and horizontally */
+            text-align: center;
+            font-family: 'Bell Gothic Std Black';
+            font-weight: lighter;
+            box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.523);
+            text-shadow: 1px 1px 7px rgb(157, 2, 105);
+            text-decoration: none;
+        }
+
+        .button {
+            position: relative;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            padding: 0.5rem 1.25rem; /* Combined padding shorthand */
+            background-color: rgb(0, 107, 179);
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            gap: 10px;
+            font-weight: bold;
+            border: 3px solid #ffffff4d;
+            outline: none;
+            overflow: hidden;
+            font-size: 15px;
+            cursor: pointer;
+            margin: 20px auto; /* Center the button */
+            text-decoration: none;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+            border-color: #fff9;
+        }
+
+        .button:hover .icon {
+            transform: translate(4px);
+        }
+
+        .button:hover::before {
+            animation: shine 1.5s ease-out infinite;
+        }
+
+        .button::before {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 100%;
+            background-image: linear-gradient(
+                120deg,
+                rgba(255, 255, 255, 0) 30%,
+                rgba(255, 255, 255, 0.8),
+                rgba(255, 255, 255, 0) 70%
+            );
+            top: 0;
+            left: -100px;
+            opacity: 0.6;
+        }
+
+        @keyframes shine {
+            0% {
+                left: -100px;
+            }
+            60% {
+                left: 100%;
+            }
+            to {
+                left: 100%;
+            }
+        }
+
+        /* Responsive styling */
+        @media screen and (max-width: 1220px) and (orientation: portrait) {
+            .text {
+                width: 80%;
+                margin-top: 20%;
+                font-size: 18px;
+                padding: 15px;
+            }
+
+            .button {
+                margin-top: 10px; /* Adjust margin to better position the button */
+                font-size: 14px;
+                padding: 0.5rem 1rem; /* Adjust padding for smaller screens */
+            }
+
+            .icon {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        @media screen and (max-width: 768px) and (orientation: portrait) {
+            .text {
+                width: 90%;
+                height: auto; /* Allow height to adjust based on content */
+                font-size: 16px;
+            }
+
+            .button {
+                margin-top: 10px; /* Adjust margin for smaller devices */
+                font-size: 13px;
+                padding: 0.5rem 0.75rem; /* Adjust padding for smaller screens */
+            }
+
+            .icon {
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="text">
+        <h1> Dear Thel Thel </h1>
+        <h1> Let's Play With Me?</h1>
+    </div>
+
+    <a href="all.html" class="button-link">
+        <button class="button">
+            Yes, let's Go Ko Ko
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" clip-rule="evenodd"></path>
+            </svg>
+        </button>
+    </a>
+</body>
+</html>
